@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pathlib
+
+fig, ax = plt.subplots()
+x = np.linspace(-5.12, 5.12, num = 201)
+A = 10
+y = (np.sin(A*(np.pi)*x))/(2*x)+(x-1)**4
+path = pathlib.Path("results")
+if not path.exists():
+    path.mkdir(parents=True, exist_ok=True)
+
+
+
+with open(r'results\task_01_307_KRASKOVSKY_13.txt','w') as f:
+    count = 0
+    while count < x.size:
+        f.write(str(x[count]))
+        f.write(" ")
+        f.write(str(y[count]))
+        f.write("\n")
+        count += 1
+
+
+ax.plot(x, y)
+plt.show()
+x = -5.12
+A = 10
+y = (np.sin(A*(np.pi)*x))/(2*x)+(x-1)**4
+print(y)
